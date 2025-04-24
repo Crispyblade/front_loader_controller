@@ -24,7 +24,7 @@ class ServoChannel(IntEnum):
 class AutonomousFrontloader(Node):
     NEUTRAL = 6000
     PUMP_ACTIVE = 8000
-    STEP_SIZE = 50
+    STEP_SIZE = 150
     MIN_POS = 4000
     MAX_POS = 8000
 
@@ -140,6 +140,9 @@ h - Show help
             'o': self.run_bucket_sequence,
             'p': self._toggle_pump,
             ' ': lambda: self._set_servo_position(ServoChannel.MOVEMENT, self.NEUTRAL),
+            'b': lambda: self._set_servo_position(ServoChannel.BUCKET, self.NEUTRAL),
+            'm': lambda: self._set_servo_position(ServoChannel.ARM, self.NEUTRAL),
+            'x': lambda: self._set_servo_position(ServoChannel.TURNING, self.NEUTRAL),
             'h': self._manual_control_documentation,
         }
 
